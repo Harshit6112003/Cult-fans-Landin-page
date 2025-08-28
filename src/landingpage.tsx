@@ -458,7 +458,7 @@ export default function LandingPage() {
           >
             <img src="/vaishali profile.svg" alt="Vaishali profile" style={{ width: 320, borderRadius: 24 }} />
             <img
-              src="/Sia profile.svg"
+              src="/images/Sia profile.svg"
               alt="Sia Profile"
               style={{
                 height: 400,
