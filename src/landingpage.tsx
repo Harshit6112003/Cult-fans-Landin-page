@@ -10,28 +10,28 @@ const timelineSteps = [
     desc: "Set up your creator profile with bio, interests, and showcase your best content to attract followers",
     icon: "/Group 1779.png",
     iconAlt: "Create Profile",
-    image: "/image.png",
+    image: "/create profile.jpg",
   },
   {
     title: "Share Content",
     desc: "Upload your creative content, engage with your audience, and build your community organically",
     icon: "/Group 1869.png",
     iconAlt: "Share Content",
-    image: "/image.png",
+    image: "/share.jpg",
   },
   {
     title: "Build Audience",
     desc: "Grow your following through consistent content creation and meaningful interactions with fans",
     icon: "/Group 1870.png",
     iconAlt: "Build Audience",
-    image: "/image.png",
+    image: "/Build Audience.jpg",
   },
   {
     title: "Monetize & Earn",
-    desc: "Start earning through various revenue Content while doing what you love most",
+    desc: "Start earning through various revenue streams while doing what you love most",
     icon: "/Group 1871.png",
     iconAlt: "Monetize & Earn",
-    image: "/image.png",
+    image: "/monetize and earn.jpg",
   },
 ];
 
@@ -287,12 +287,13 @@ export default function LandingPage() {
     setOpenIndex(openIndex === idx ? null : idx);
   };
 
+  // FIXED FAQ useEffect
   useEffect(() => {
     refs.current.forEach((el, idx) => {
       if (el) {
         if (openIndex === idx) {
-          el.style.maxHeight = el.scrollHeight + "px";
-          el.style.paddingTop = "16px";
+          el.style.maxHeight = el.scrollHeight + 40 + "px"; // FIXED
+          el.style.paddingTop = "20px";
           el.style.paddingBottom = "20px";
           el.style.opacity = "1";
         } else {
@@ -855,7 +856,6 @@ export default function LandingPage() {
                     refs.current[idx] = el;
                   }}
                   style={{
-                    maxHeight: openIndex === idx ? "auto" : "0px",
                     overflow: "hidden",
                     background: "#4f320f",
                     color: "#e9d8b0",
@@ -863,14 +863,12 @@ export default function LandingPage() {
                     fontWeight: 400,
                     lineHeight: 1.6,
                     borderRadius: "0 0 14px 14px",
-                    transition: "max-height 0.4s cubic-bezier(.37,1,.65,1), padding 0.25s, opacity 0.25s",
-                    padding: "0 16px",
-                    paddingTop: "0px",
-                    paddingBottom: "0px",
+                    transition: "max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease, opacity 0.3s ease",
+                    paddingLeft: "16px",
+                    paddingRight: "16px",
                     userSelect: "text",
                     boxSizing: "border-box",
                     marginBottom: openIndex === idx ? 8 : 0,
-                    opacity: 0,
                   }}
                 >
                   {faq.answer}
@@ -1054,13 +1052,13 @@ export default function LandingPage() {
 
       {/* Global Styles */}
       <style jsx global>{`
-        /* Fixed floating animation */
+        /* ENHANCED floating animation */
         @keyframes floatUpDown {
           0%, 100% { 
             transform: translateY(0px); 
           }
           50% { 
-            transform: translateY(-15px); 
+            transform: translateY(-20px); 
           }
         }
 
@@ -1075,9 +1073,10 @@ export default function LandingPage() {
           }
         }
 
-        /* Apply floating animation to all floating cards */
+        /* Desktop floating animation - ORIGINAL */
         .floating-card {
-          animation: floatUpDown 3.5s ease-in-out infinite !important;
+          animation: floatUpDown 4s ease-in-out infinite !important;
+          will-change: transform;
         }
 
         .floating-card-1 {
@@ -1085,11 +1084,11 @@ export default function LandingPage() {
         }
 
         .floating-card-2 {
-          animation-delay: 1.2s !important;
+          animation-delay: 1.3s !important;
         }
 
         .floating-card-3 {
-          animation-delay: 2.4s !important;
+          animation-delay: 2.6s !important;
         }
 
         /* Footer hover effects */
@@ -1171,7 +1170,7 @@ export default function LandingPage() {
             padding: 14px 24px !important;
           }
 
-          /* Mobile floating cards - maintain floating animation but stack vertically */
+          /* Mobile floating cards - NOW SAME AS DESKTOP */
           .hero-images {
             width: 100% !important;
             height: auto !important;
@@ -1183,28 +1182,29 @@ export default function LandingPage() {
             padding: 20px 0;
           }
 
-          /* Keep floating animation on mobile */
+          /* Mobile floating animation - NOW MATCHES DESKTOP */
           .floating-card {
             position: relative !important;
             left: 0 !important;
             top: 0 !important;
             width: 90% !important;
             max-width: 320px !important;
-            /* Maintain floating animation on mobile */
-            animation: floatUpDown 3.5s ease-in-out infinite, fadeUp 0.8s ease forwards !important;
+            /* SAME AS DESKTOP - only floatUpDown animation */
+            animation: floatUpDown 4s ease-in-out infinite !important;
             border-radius: 24px;
+            will-change: transform;
           }
 
           .floating-card-1 {
-            animation-delay: 0s, 0.2s !important;
+            animation-delay: 0s !important;
           }
 
           .floating-card-2 {
-            animation-delay: 1.2s, 0.6s !important;
+            animation-delay: 1.3s !important;
           }
 
           .floating-card-3 {
-            animation-delay: 2.4s, 1s !important;
+            animation-delay: 2.6s !important;
           }
 
           /* Explore Creators Mobile */
@@ -1236,54 +1236,61 @@ export default function LandingPage() {
           }
 
           /* Timeline Mobile */
-          .timeline-section {
-            padding: 20px !important;
-            margin: 40px auto 20px auto !important;
-          }
+          /* Timeline Mobile - FIXED ORDER */
+.timeline-section {
+  padding: 20px !important;
+  margin: 40px auto 20px auto !important;
+}
 
-          .timeline-title {
-            font-size: 1.8rem !important;
-            margin-bottom: 40px !important;
-            padding: 0 20px;
-            text-align: center;
-          }
+.timeline-title {
+  font-size: 1.8rem !important;
+  margin-bottom: 40px !important;
+  padding: 0 20px;
+  text-align: center;
+}
 
-          .timeline-container {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 20px !important;
-            max-width: 100% !important;
-            align-items: center;
-          }
+.timeline-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 30px !important;
+  max-width: 100% !important;
+  align-items: center;
+}
 
-          .timeline-line {
-            display: none !important;
-          }
+.timeline-line {
+  display: none !important;
+}
 
-          .timeline-card {
-            left: 0 !important;
-            min-width: 280px !important;
-            max-width: 350px !important;
-            width: 90% !important;
-            margin-bottom: 24px !important;
-          }
+/* FIXED: Proper order for mobile */
+.timeline-container > div:nth-child(1) { order: 1; } /* Create Profile */
+.timeline-container > div:nth-child(3) { order: 2; } /* Share Content */
+.timeline-container > div:nth-child(2) { order: 3; } /* Build Audience */
+.timeline-container > div:nth-child(4) { order: 4; } /* Monetize & Earn */
 
-          .timeline-card img {
-            width: 80px !important;
-            height: 80px !important;
-          }
+.timeline-card {
+  left: 0 !important;
+  min-width: 280px !important;
+  max-width: 350px !important;
+  width: 90% !important;
+  margin-bottom: 0px !important;
+}
 
-          .timeline-card > div {
-            padding: 0 16px !important;
-          }
+.timeline-card img {
+  width: 80px !important;
+  height: 80px !important;
+}
 
-          .timeline-card > div > div:first-child {
-            font-size: 1rem !important;
-          }
+.timeline-card > div {
+  padding: 0 16px !important;
+}
 
-          .timeline-card > div > div:last-child {
-            font-size: 0.9rem !important;
-          }
+.timeline-card > div > div:first-child {
+  font-size: 1rem !important;
+}
+
+.timeline-card > div > div:last-child {
+  font-size: 0.9rem !important;
+}
 
           /* Why Choose Us Mobile */
           .why-choose {
@@ -1358,7 +1365,8 @@ export default function LandingPage() {
           }
 
           .faq-content > div > div:last-child {
-            padding: 0 16px !important;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
             font-size: 1rem !important;
           }
 
