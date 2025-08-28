@@ -27,10 +27,10 @@ const timelineSteps = [
     image: "/Build Audience.jpg",
   },
   {
-    title: "Monetize &amp; Earn",
+    title: "Monetize & Earn",
     desc: "Start earning through various revenue streams while doing what you love most",
     icon: "/Group 1871.png",
-    iconAlt: "Monetize &amp; Earn",
+    iconAlt: "Monetize & Earn",
     image: "/monetize and earn.jpg",
   },
 ];
@@ -192,6 +192,16 @@ const TimelineIcon: React.FC<{ icon: string; top: number; delay: number }> = ({ 
 // Mobile Menu Component
 const MobileMenu: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
+
+  const handleLinkClick = (sectionId: string) => {
+    onClose();
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 300);
+  };
   
   return (
     <div
@@ -226,15 +236,45 @@ const MobileMenu: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
         ✕
       </button>
       
-      <a href="#" style={{ color: "#dedccd", fontSize: "1.2rem", textDecoration: "none" }}>
-        Platform Guidelines
-      </a>
-      <a href="#" style={{ color: "#dedccd", fontSize: "1.2rem", textDecoration: "none" }}>
+      <button 
+        onClick={() => handleLinkClick('explore-creators')}
+        style={{ 
+          background: "transparent",
+          border: "none",
+          color: "#dedccd", 
+          fontSize: "1.2rem", 
+          cursor: "pointer",
+          textDecoration: "none" 
+        }}
+      >
+        Explore Creators
+      </button>
+      <button 
+        onClick={() => handleLinkClick('about-us')}
+        style={{ 
+          background: "transparent",
+          border: "none",
+          color: "#dedccd", 
+          fontSize: "1.2rem", 
+          cursor: "pointer",
+          textDecoration: "none" 
+        }}
+      >
         About Us
-      </a>
-      <a href="#" style={{ color: "#dedccd", fontSize: "1.2rem", textDecoration: "none" }}>
+      </button>
+      <button 
+        onClick={() => handleLinkClick('faq')}
+        style={{ 
+          background: "transparent",
+          border: "none",
+          color: "#dedccd", 
+          fontSize: "1.2rem", 
+          cursor: "pointer",
+          textDecoration: "none" 
+        }}
+      >
         FAQ
-      </a>
+      </button>
       <button
         style={{
           background: "linear-gradient(135deg, #D36407, #E49A5C)",
@@ -258,6 +298,14 @@ const MobileMenu: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
 export default function LandingPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Smooth scroll function
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const faqList = [
     {
@@ -341,15 +389,48 @@ export default function LandingPage() {
           </span>
           
           <nav className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: "42px" }}>
-            <a href="#" style={{ color: "#dedccd", fontWeight: 500, fontSize: "1.13rem", textDecoration: "none" }}>
-              Platform Guidelines
-            </a>
-            <a href="#" style={{ color: "#dedccd", fontWeight: 500, fontSize: "1.13rem", textDecoration: "none" }}>
+            <button 
+              onClick={() => scrollToSection('explore-creators')}
+              style={{ 
+                background: "transparent",
+                border: "none",
+                color: "#dedccd", 
+                fontWeight: 500, 
+                fontSize: "1.13rem", 
+                cursor: "pointer",
+                textDecoration: "none" 
+              }}
+            >
+              Explore Creators
+            </button>
+            <button 
+              onClick={() => scrollToSection('about-us')}
+              style={{ 
+                background: "transparent",
+                border: "none",
+                color: "#dedccd", 
+                fontWeight: 500, 
+                fontSize: "1.13rem", 
+                cursor: "pointer",
+                textDecoration: "none" 
+              }}
+            >
               About Us
-            </a>
-            <a href="#" style={{ color: "#dedccd", fontWeight: 500, fontSize: "1.13rem", textDecoration: "none" }}>
+            </button>
+            <button 
+              onClick={() => scrollToSection('faq')}
+              style={{ 
+                background: "transparent",
+                border: "none",
+                color: "#dedccd", 
+                fontWeight: 500, 
+                fontSize: "1.13rem", 
+                cursor: "pointer",
+                textDecoration: "none" 
+              }}
+            >
               FAQ
-            </a>
+            </button>
           </nav>
           
           <button className="desktop-join-btn" style={{
@@ -475,18 +556,22 @@ export default function LandingPage() {
               }}>
                 <span style={{ marginRight: "8px" }}>👤</span> Join as creator
               </button>
-              <button className="hero-secondary-btn" style={{
-                background: "transparent",
-                color: "#E49A5C",
-                borderRadius: 12,
-                border: "2px solid #E49A5C",
-                fontWeight: 600,
-                fontSize: "1.17rem",
-                padding: "13px 36px",
-                minWidth: 180,
-                boxShadow: "0 1px 14px #E49A5C40",
-                cursor: "pointer",
-              }}>
+              <button 
+                className="hero-secondary-btn" 
+                onClick={() => scrollToSection('explore-creators')}
+                style={{
+                  background: "transparent",
+                  color: "#E49A5C",
+                  borderRadius: 12,
+                  border: "2px solid #E49A5C",
+                  fontWeight: 600,
+                  fontSize: "1.17rem",
+                  padding: "13px 36px",
+                  minWidth: 180,
+                  boxShadow: "0 1px 14px #E49A5C40",
+                  cursor: "pointer",
+                }}
+              >
                 <span style={{ marginRight: "8px" }}>🌐</span> Explore Creators
               </button>
             </div>
@@ -521,7 +606,7 @@ export default function LandingPage() {
               style={{
                 position: "absolute",
                 top: "200px",
-                left: "20%",
+                left: "12%",
                 width: "400px",
                 zIndex: 10,
                 borderRadius: 24,
@@ -545,6 +630,7 @@ export default function LandingPage() {
 
         {/* Explore Creators Section */}
         <section
+          id="explore-creators"
           className="explore-creators"
           style={{
             maxWidth: 1200,
@@ -552,6 +638,7 @@ export default function LandingPage() {
             marginTop: 60,
             padding: "16px 0 54px 0",
             textAlign: "center",
+            scrollMarginTop: "80px", // Offset for fixed header
           }}
         >
           <h2
@@ -718,8 +805,17 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Why Choose Us Section */}
-        <section className="why-choose" style={{ width: "100%", padding: "40px 0 0 0", textAlign: "center" }}>
+        {/* Why Choose Us Section (About Us) */}
+        <section 
+          id="about-us"
+          className="why-choose" 
+          style={{ 
+            width: "100%", 
+            padding: "40px 0 0 0", 
+            textAlign: "center",
+            scrollMarginTop: "80px", // Offset for fixed header
+          }}
+        >
           <h2 style={{ fontSize: "2rem", fontWeight: "bold", color: "#fff", marginBottom: "33px" }}>
             Why creators <span style={{ 
               background: "linear-gradient(135deg, #D36407, #E49A5C)",
@@ -771,6 +867,7 @@ export default function LandingPage() {
 
         {/* FAQ Section */}
         <section
+          id="faq"
           className="faq-section"
           style={{
             background: "transparent",
@@ -782,6 +879,7 @@ export default function LandingPage() {
             marginBottom: "38px",
             marginTop: "120px",
             padding: "0 16px",
+            scrollMarginTop: "80px", // Offset for fixed header
           }}
         >
           <div
@@ -958,6 +1056,7 @@ export default function LandingPage() {
             </button>
             <button
               className="cta-secondary"
+              onClick={() => scrollToSection('explore-creators')}
               style={{
                 background: "transparent",
                 color: "#E49A5C",
@@ -1018,20 +1117,19 @@ export default function LandingPage() {
               >
                 <span style={{ color: "#ffffff" }}>CULT</span>
                 <span
-  style={{
-    background: "linear-gradient(135deg, #D36407, #E49A5C)",
-    backgroundClip: "text",
-    WebkitBackgroundClip: "text",
-    color: "transparent",
-    WebkitTextFillColor: "transparent",
-    fontWeight: 900,
-    letterSpacing: "2px",
-    display: "inline-block"
-  }}
->
-  FANS
-</span>
-
+                  style={{
+                    background: "linear-gradient(135deg, #D36407, #E49A5C)",
+                    backgroundClip: "text",
+                    WebkitBackgroundClip: "text",
+                    color: "transparent",
+                    WebkitTextFillColor: "transparent",
+                    fontWeight: 900,
+                    letterSpacing: "2px",
+                    display: "inline-block"
+                  }}
+                >
+                  FANS
+                </span>
               </div>
               <div style={{ color: "#e0e0e0", fontSize: "1rem", lineHeight: 1.5 }}>
                 The ultimate platform where creators showcase their talent, build engaged communities, and turn their passion into profit.
@@ -1042,9 +1140,62 @@ export default function LandingPage() {
             <div className="footer-links" style={{ minWidth: 160, flex: 1 }}>
               <div style={{ fontWeight: 700, marginBottom: 15, fontSize: "1rem" }}>QUICK LINKS</div>
               <div>
-                <a href="#" style={{ color: "#fff", textDecoration: "none", display: "block", marginBottom: 11, fontSize: "1rem", opacity: 0.89, transition: "opacity 0.2s" }}>Platform Guidelines</a>
-                <a href="#" style={{ color: "#fff", textDecoration: "none", display: "block", marginBottom: 11, fontSize: "1rem", opacity: 0.89, transition: "opacity 0.2s" }}>About Us</a>
-                <a href="#" style={{ color: "#fff", textDecoration: "none", display: "block", fontSize: "1rem", opacity: 0.89, transition: "opacity 0.2s" }}>FAQ</a>
+                <button 
+                  onClick={() => scrollToSection('explore-creators')}
+                  style={{ 
+                    background: "transparent",
+                    border: "none",
+                    color: "#fff", 
+                    textDecoration: "none", 
+                    display: "block", 
+                    marginBottom: 11, 
+                    fontSize: "1rem", 
+                    opacity: 0.89, 
+                    transition: "opacity 0.2s",
+                    cursor: "pointer",
+                    textAlign: "left",
+                    padding: 0
+                  }}
+                >
+                  Explore Creators
+                </button>
+                <button 
+                  onClick={() => scrollToSection('about-us')}
+                  style={{ 
+                    background: "transparent",
+                    border: "none",
+                    color: "#fff", 
+                    textDecoration: "none", 
+                    display: "block", 
+                    marginBottom: 11, 
+                    fontSize: "1rem", 
+                    opacity: 0.89, 
+                    transition: "opacity 0.2s",
+                    cursor: "pointer",
+                    textAlign: "left",
+                    padding: 0
+                  }}
+                >
+                  About Us
+                </button>
+                <button 
+                  onClick={() => scrollToSection('faq')}
+                  style={{ 
+                    background: "transparent",
+                    border: "none",
+                    color: "#fff", 
+                    textDecoration: "none", 
+                    display: "block", 
+                    fontSize: "1rem", 
+                    opacity: 0.89, 
+                    transition: "opacity 0.2s",
+                    cursor: "pointer",
+                    textAlign: "left",
+                    padding: 0
+                  }}
+                >
+                  FAQ
+                </button>
               </div>
             </div>
 
@@ -1077,6 +1228,11 @@ export default function LandingPage() {
 
       {/* Global Styles */}
       <style jsx global>{`
+        /* Add smooth scrolling to the entire document */
+        html {
+          scroll-behavior: smooth;
+        }
+
         /* ENHANCED floating animation */
         @keyframes floatUpDown {
           0%, 100% { 
@@ -1117,7 +1273,7 @@ export default function LandingPage() {
         }
 
         /* Footer hover effects */
-        .footer-links a:hover, .footer-policies a:hover {
+        .footer-links button:hover, .footer-policies a:hover {
           opacity: 1 !important;
           color: #E49A5C !important;
         }
@@ -1262,61 +1418,61 @@ export default function LandingPage() {
 
           /* Timeline Mobile */
           /* Timeline Mobile - FIXED ORDER */
-.timeline-section {
-  padding: 20px !important;
-  margin: 40px auto 20px auto !important;
-}
+          .timeline-section {
+            padding: 20px !important;
+            margin: 40px auto 20px auto !important;
+          }
 
-.timeline-title {
-  font-size: 1.8rem !important;
-  margin-bottom: 40px !important;
-  padding: 0 20px;
-  text-align: center;
-}
+          .timeline-title {
+            font-size: 1.8rem !important;
+            margin-bottom: 40px !important;
+            padding: 0 20px;
+            text-align: center;
+          }
 
-.timeline-container {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 30px !important;
-  max-width: 100% !important;
-  align-items: center;
-  padding-left:33px;
-}
+          .timeline-container {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 30px !important;
+            max-width: 100% !important;
+            align-items: center;
+            padding-left: 33px;
+          }
 
-.timeline-line {
-  display: none !important;
-}
+          .timeline-line {
+            display: none !important;
+          }
 
-/* FIXED: Proper order for mobile */
-.timeline-container > div:nth-child(1) { order: 1; } /* Create Profile */
-.timeline-container > div:nth-child(3) { order: 2; } /* Share Content */
-.timeline-container > div:nth-child(2) { order: 3; } /* Build Audience */
-.timeline-container > div:nth-child(4) { order: 4; } /* Monetize & Earn */
+          /* FIXED: Proper order for mobile */
+          .timeline-container > div:nth-child(1) { order: 1; } /* Create Profile */
+          .timeline-container > div:nth-child(3) { order: 2; } /* Share Content */
+          .timeline-container > div:nth-child(2) { order: 3; } /* Build Audience */
+          .timeline-container > div:nth-child(4) { order: 4; } /* Monetize & Earn */
 
-.timeline-card {
-  left: 0 !important;
-  min-width: 280px !important;
-  max-width: 350px !important;
-  width: 90% !important;
-  margin-bottom: 0px !important;
-}
+          .timeline-card {
+            left: 0 !important;
+            min-width: 280px !important;
+            max-width: 350px !important;
+            width: 90% !important;
+            margin-bottom: 0px !important;
+          }
 
-.timeline-card img {
-  width: 80px !important;
-  height: 80px !important;
-}
+          .timeline-card img {
+            width: 80px !important;
+            height: 80px !important;
+          }
 
-.timeline-card > div {
-  padding: 0 16px !important;
-}
+          .timeline-card > div {
+            padding: 0 16px !important;
+          }
 
-.timeline-card > div > div:first-child {
-  font-size: 1rem !important;
-}
+          .timeline-card > div > div:first-child {
+            font-size: 1rem !important;
+          }
 
-.timeline-card > div > div:last-child {
-  font-size: 0.9rem !important;
-}
+          .timeline-card > div > div:last-child {
+            font-size: 0.9rem !important;
+          }
 
           /* Why Choose Us Mobile */
           .why-choose {
@@ -1471,7 +1627,7 @@ export default function LandingPage() {
             font-weight: 700 !important;
           }
 
-          .footer-links a, .footer-policies a {
+          .footer-links button, .footer-policies a {
             font-size: 1rem !important;
             margin-bottom: 12px !important;
             display: block !important;
