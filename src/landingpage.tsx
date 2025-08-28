@@ -27,10 +27,10 @@ const timelineSteps = [
     image: "/Build Audience.jpg",
   },
   {
-    title: "Monetize & Earn",
+    title: "Monetize &amp; Earn",
     desc: "Start earning through various revenue streams while doing what you love most",
     icon: "/Group 1871.png",
-    iconAlt: "Monetize & Earn",
+    iconAlt: "Monetize &amp; Earn",
     image: "/monetize and earn.jpg",
   },
 ];
@@ -174,9 +174,9 @@ const TimelineIcon: React.FC<{ icon: string; top: number; delay: number }> = ({ 
         top,
         width: 44,
         height: 44,
-        background: "#f8934e",
+        background: "linear-gradient(135deg, #D36407, #E49A5C)",
         borderRadius: 25,
-        boxShadow: "0 2px 14px #f8934e44",
+        boxShadow: "inset 0 4px 6px rgba(0,0,0,0.4), inset 0 -4px 6px rgba(0,0,0,0.2), 0 2px 14px #E49A5C44",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -237,15 +237,16 @@ const MobileMenu: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
       </a>
       <button
         style={{
-          background: "#f8934e",
+          background: "linear-gradient(135deg, #D36407, #E49A5C)",
           color: "#fff",
-          borderRadius: 24,
+          borderRadius: 12,
           border: "none",
           padding: "12px 24px",
           fontWeight: 700,
           fontSize: "1rem",
           cursor: "pointer",
-          marginTop: "20px"
+          marginTop: "20px",
+          boxShadow: "inset 0 4px 6px rgba(0,0,0,0.4), inset 0 -4px 6px rgba(0,0,0,0.2)"
         }}
       >
         Join Now
@@ -332,7 +333,11 @@ export default function LandingPage() {
         >
           <span className="logo" style={{ fontSize: "2.2rem", fontWeight: 700, letterSpacing: "2px" }}>
             <span style={{ color: "#fff" }}>CULT</span>
-            <span style={{ color: "#f8934e" }}>FANS</span>
+            <span style={{ 
+              background: "linear-gradient(135deg, #D36407, #E49A5C)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"
+            }}>FANS</span>
           </span>
           
           <nav className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: "42px" }}>
@@ -348,14 +353,15 @@ export default function LandingPage() {
           </nav>
           
           <button className="desktop-join-btn" style={{
-            background: "#f8934e",
+            background: "linear-gradient(135deg, #D36407, #E49A5C)",
             color: "#fff",
-            borderRadius: 24,
+            borderRadius: 12,
             border: "none",
             padding: "10px 32px",
             fontWeight: 700,
             fontSize: "1.09rem",
             cursor: "pointer",
+            boxShadow: "inset 0 4px 6px rgba(0,0,0,0.4), inset 0 -4px 6px rgba(0,0,0,0.2)"
           }}>
             Join Now
           </button>
@@ -432,7 +438,11 @@ export default function LandingPage() {
             >
               Create.
               <br />
-              <span style={{ color: "#f8934e" }}>Connect.</span>
+              <span style={{ 
+                background: "linear-gradient(135deg, #D36407, #E49A5C)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent"
+              }}>Connect.</span>
               <br />
               Earn.
             </h1>
@@ -452,29 +462,29 @@ export default function LandingPage() {
             </p>
             <div className="hero-buttons" style={{ display: "flex", gap: "30px", marginTop: "20px" }}>
               <button className="hero-primary-btn" style={{
-                background: "#f8934e",
+                background: "linear-gradient(135deg, #D36407, #E49A5C)",
                 color: "#fff",
-                borderRadius: 28,
+                borderRadius: 12,
                 border: "none",
                 fontWeight: 600,
                 fontSize: "1.17rem",
                 padding: "13px 36px",
                 minWidth: 180,
-                boxShadow: "0 1px 14px #f8934e40",
+                boxShadow: "inset 0 4px 6px rgba(0,0,0,0.4), inset 0 -4px 6px rgba(0,0,0,0.2), 0 1px 14px #E49A5C40",
                 cursor: "pointer",
               }}>
                 <span style={{ marginRight: "8px" }}>👤</span> Join as creator
               </button>
               <button className="hero-secondary-btn" style={{
                 background: "transparent",
-                color: "#f8934e",
-                borderRadius: 28,
-                border: "2px solid #f8934e",
+                color: "#E49A5C",
+                borderRadius: 12,
+                border: "2px solid #E49A5C",
                 fontWeight: 600,
                 fontSize: "1.17rem",
                 padding: "13px 36px",
                 minWidth: 180,
-                boxShadow: "0 1px 14px #f8934e40",
+                boxShadow: "0 1px 14px #E49A5C40",
                 cursor: "pointer",
               }}>
                 <span style={{ marginRight: "8px" }}>🌐</span> Explore Creators
@@ -553,7 +563,11 @@ export default function LandingPage() {
               marginBottom: 10,
             }}
           >
-            Explore <span style={{ color: "#f8934e" }}>Creators</span>
+            Explore <span style={{ 
+              background: "linear-gradient(135deg, #D36407, #E49A5C)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"
+            }}>Creators</span>
           </h2>
           <p
             style={{
@@ -644,7 +658,11 @@ export default function LandingPage() {
               marginBottom: "30px"
             }}
           >
-            How to Become a <span style={{ color: "#f8934e" }}>Creator</span>
+            How to Become a <span style={{ 
+              background: "linear-gradient(135deg, #D36407, #E49A5C)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"
+            }}>Creator</span>
           </h2>
           
           <div
@@ -703,7 +721,11 @@ export default function LandingPage() {
         {/* Why Choose Us Section */}
         <section className="why-choose" style={{ width: "100%", padding: "40px 0 0 0", textAlign: "center" }}>
           <h2 style={{ fontSize: "2rem", fontWeight: "bold", color: "#fff", marginBottom: "33px" }}>
-            Why creators <span style={{ color: "#f8934e" }}>choose us</span>
+            Why creators <span style={{ 
+              background: "linear-gradient(135deg, #D36407, #E49A5C)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"
+            }}>choose us</span>
           </h2>
           <div
             className="why-cards"
@@ -777,13 +799,13 @@ export default function LandingPage() {
                 style={{
                   fontSize: "5.5em",
                   fontWeight: "bold",
-                  color: "#fdd700",
+                  color: "#E49A5C",
                   position: "relative",
                   lineHeight: "0.8",
-                  filter: "drop-shadow(0 0 2px #f8934e)",
+                  filter: "drop-shadow(0 0 2px #E49A5C)",
                 }}
               >
-                <img src="/inr.png" alt="INR" style={{ width: "120px", height: "auto" }} />
+                <img src="/inr.png" alt="INR" style={{ width: "250px", height: "300px" }} />
               </span>
               <div
                 style={{
@@ -792,8 +814,7 @@ export default function LandingPage() {
                   marginTop: "-80px",
                   marginLeft: "100px",
                   borderRadius: "20px",
-                  background: "linear-gradient(120deg, #f8934eaa 40%, #fbbf5933 100%)",
-                  boxShadow: "0 0 8px #f8934e77 inset",
+                  boxShadow: "inset 0 4px 6px rgba(0,0,0,0.4), inset 0 -4px 6px rgba(0,0,0,0.2)",
                 }}
               ></div>
             </div>
@@ -806,9 +827,9 @@ export default function LandingPage() {
               borderRadius: "14px",
               width: "46%",
               maxWidth: "600px",
-              boxShadow: "0 4px 20px #f8934e55",
+              boxShadow: "0 4px 20px #E49A5C55",
               padding: "22px 24px",
-              border: "1.5px solid #f8934e80",
+              border: "1.5px solid #E49A5C80",
               color: "#f8f1e7",
               fontFamily: "'Montserrat', Arial, sans-serif",
             }}
@@ -830,7 +851,7 @@ export default function LandingPage() {
                     fontWeight: 600,
                     fontSize: "1.2rem",
                     letterSpacing: "0.02em",
-                    color: openIndex === idx ? "#f8934e" : "#ff9148",
+                    color: openIndex === idx ? "#E49A5C" : "#E49A5C",
                     transition: "background 0.25s, color 0.25s",
                     border: "1px solid #603813"
                   }}
@@ -838,7 +859,7 @@ export default function LandingPage() {
                   {faq.question}
                   <div
                     style={{
-                      color: "#f8934e",
+                      color: "#E49A5C",
                       fontSize: "1.6rem",
                       fontWeight: 700,
                       marginLeft: 12,
@@ -918,15 +939,15 @@ export default function LandingPage() {
             <button
               className="cta-primary"
               style={{
-                background: "#e26918",
-                color: "#16110a",
-                borderRadius: "32px",
+                background: "linear-gradient(135deg, #D36407, #E49A5C)",
+                color: "#fff",
+                borderRadius: "12px",
                 border: "none",
                 padding: "16px 36px",
                 fontWeight: 700,
                 fontSize: "1.07rem",
                 cursor: "pointer",
-                boxShadow: "0 2px 12px #f9ae0f20",
+                boxShadow: "inset 0 4px 6px rgba(0,0,0,0.4), inset 0 -4px 6px rgba(0,0,0,0.2), 0 2px 12px #D3640720",
                 letterSpacing: ".03em",
                 transition: "filter 0.2s",
               }}
@@ -939,14 +960,14 @@ export default function LandingPage() {
               className="cta-secondary"
               style={{
                 background: "transparent",
-                color: "#e26918",
-                borderRadius: "32px",
-                border: "2px solid #e26918",
+                color: "#E49A5C",
+                borderRadius: "12px",
+                border: "2px solid #E49A5C",
                 padding: "16px 36px",
                 fontWeight: 700,
                 fontSize: "1.07rem",
                 cursor: "pointer",
-                boxShadow: "0 2px 10px #f9ae0f15",
+                boxShadow: "0 2px 10px #D3640715",
                 letterSpacing: ".03em",
                 transition: "background 0.2s, color 0.2s",
                 marginLeft: 0,
@@ -997,16 +1018,20 @@ export default function LandingPage() {
               >
                 <span style={{ color: "#ffffff" }}>CULT</span>
                 <span
-                  style={{
-                    background: "linear-gradient(90deg, #f8934e 30%, #fdd700 99%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    fontWeight: 900,
-                    letterSpacing: "2px",
-                  }}
-                >
-                  FANS
-                </span>
+  style={{
+    background: "linear-gradient(135deg, #D36407, #E49A5C)",
+    backgroundClip: "text",
+    WebkitBackgroundClip: "text",
+    color: "transparent",
+    WebkitTextFillColor: "transparent",
+    fontWeight: 900,
+    letterSpacing: "2px",
+    display: "inline-block"
+  }}
+>
+  FANS
+</span>
+
               </div>
               <div style={{ color: "#e0e0e0", fontSize: "1rem", lineHeight: 1.5 }}>
                 The ultimate platform where creators showcase their talent, build engaged communities, and turn their passion into profit.
@@ -1094,7 +1119,7 @@ export default function LandingPage() {
         /* Footer hover effects */
         .footer-links a:hover, .footer-policies a:hover {
           opacity: 1 !important;
-          color: #f8934e !important;
+          color: #E49A5C !important;
         }
 
         /* Mobile Styles */
@@ -1255,6 +1280,7 @@ export default function LandingPage() {
   gap: 30px !important;
   max-width: 100% !important;
   align-items: center;
+  padding-left:33px;
 }
 
 .timeline-line {
