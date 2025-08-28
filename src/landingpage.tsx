@@ -197,11 +197,11 @@ export default function LandingPage() {
     setOpenIndex(openIndex === idx ? null : idx);
   };
   useEffect(() => {
-  
+
     refs.current.forEach((el, idx) => {
       if (el) {
         if (openIndex === idx) {
-          el.style.maxHeight = el.scrollHeight+24+"px"
+          el.style.maxHeight = el.scrollHeight + 24 + "px"
           el.style.paddingTop = "12px";
           el.style.paddingBottom = "18px";
         } else {
@@ -481,412 +481,439 @@ export default function LandingPage() {
             padding: "0px 0 0 0"
           }}
         >
-          <h2
+          <h2 className="first"
             style={{
               fontSize: "2.1rem",
               fontWeight: "bold",
               color: "#fff",
               letterSpacing: "1.1px",
               marginBottom: "30px"
+              
             }}
           >
-            How to Become a <span style={{ color: "#f8934e" }}>Creator</span>
-          </h2>
+        How to Become a <span style={{ color: "#f8934e" }}>Creator</span>
+      </h2>
+      
+      <div
+        style={{
+          position: "relative",
+          display: "grid",
+          gridTemplateColumns: "1fr 60px 1fr",
+          alignItems: "center",
+          maxWidth: 950,
+          width: "100%",
+          minHeight: 500,
+          rowGap: 35
+        }}
+      >
+        {/* Left cards */}
+        <div className="secound" style={{ gridColumn: 1, gridRow: 1 }}>
+          <TimelineCard step={timelineSteps[0]} />
+        </div>
+        <div className="secound" style={{ gridColumn: 1, gridRow: 3 }}>
+          <TimelineCard step={timelineSteps[2]} />
+        </div>
+        {/* Right cards */}
+        <div className="secound" style={{ gridColumn: 3, gridRow: 2, }}>
+          <TimelineCard step={timelineSteps[1]} right />
+        </div>
+        <div className="secound" style={{ gridColumn: 3, gridRow: 4 }}>
+          <TimelineCard step={timelineSteps[3]} right />
+        </div>
+        {/* Timeline and PNG icon circles */}
+        <div className="timeline-wrapper" style={{ gridColumn: 2, gridRow: "1 / 5", position: "relative", height: "100%" }}>
           <div
             style={{
-              position: "relative",
-              display: "grid",
-              gridTemplateColumns: "1fr 60px 1fr",
-              alignItems: "center",
-              maxWidth: 950,
-              width: "100%",
-              minHeight: 500,
-              rowGap: 35
+              position: "absolute",
+              left: "50%",
+              top: 0,
+              height: "100%",
+              width: 4,
+              background: "#fff",
+              opacity: 0.33,
+              transform: "translateX(-50%)",
+              borderRadius: 2,
+              zIndex: 1
             }}
-          >
-            {/* Left cards */}
-            <div style={{ gridColumn: 1, gridRow: 1 }}>
-              <TimelineCard step={timelineSteps[0]} />
-            </div>
-            <div style={{ gridColumn: 1, gridRow: 3 }}>
-              <TimelineCard step={timelineSteps[2]} />
-            </div>
-            {/* Right cards */}
-            <div style={{ gridColumn: 3, gridRow: 2, }}>
-              <TimelineCard step={timelineSteps[1]} right />
-            </div>
-            <div style={{ gridColumn: 3, gridRow: 4 }}>
-              <TimelineCard step={timelineSteps[3]} right />
-            </div>
-            {/* Timeline and PNG icon circles */}
-            <div style={{ gridColumn: 2, gridRow: "1 / 5", position: "relative", height: "100%" }}>
-              <div
-                style={{
-                  position: "absolute",
-                  left: "50%",
-                  top: 0,
-                  height: "100%",
-                  width: 4,
-                  background: "#fff",
-                  opacity: 0.33,
-                  transform: "translateX(-50%)",
-                  borderRadius: 2,
-                  zIndex: 1
-                }}
-              />
-              <TimelineIcon icon={timelineSteps[0].icon} top={40} delay={0} />
-              <TimelineIcon icon={timelineSteps[1].icon} top={200} delay={1} />
-              <TimelineIcon icon={timelineSteps[2].icon} top={370} delay={2} />
-              <TimelineIcon icon={timelineSteps[3].icon} top={540} delay={3} />
-            </div>
-          </div>
-        </section>
-        <section style={{ width: "100%", padding: "40px 0 0 0", textAlign: "center" }}>
-          <h2 style={{ fontSize: "2rem", fontWeight: "bold", color: "#fff", marginBottom: "33px" }}>
-            Why creators <span style={{ color: "#f8934e" }}>choose us</span>
-          </h2>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              gap: "28px",
-              marginBottom: "42px",
-            }}
-          >
-            {whyCards.map((card) => (
-              <div
-                key={card.title}
-                style={{
-                  background: "#191919",
-                  borderRadius: "14px",
-                  boxShadow: "0 2px 16px #42271033",
-                  color: "#fff",
-                  minWidth: "230px",
-                  maxWidth: "260px",
-                  padding: "32px 20px 24px 20px",
-                  textAlign: "left",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                }}
-              >
-                <img
-                  src={card.icon}
-                  alt={card.title}
-                  style={{ width: 40, height: 40, marginBottom: 18 }}
-                />
-
-                <div style={{ fontWeight: "bold", fontSize: "1.1rem", marginBottom: "8px" }}>
-                  {card.title}
-                </div>
-                <div style={{ color: "#ccc", fontSize: "0.97rem" }}>{card.desc}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section
+          />
+          <TimelineIcon icon={timelineSteps[0].icon} top={40} delay={0} />
+          <TimelineIcon icon={timelineSteps[1].icon} top={200} delay={1} />
+          <TimelineIcon icon={timelineSteps[2].icon} top={370} delay={2} />
+          <TimelineIcon icon={timelineSteps[3].icon} top={540} delay={3} />
+        </div>
+      </div>
+    </section >
+      <section style={{ width: "100%", padding: "40px 0 0 0", textAlign: "center" }}>
+        <h2 style={{ fontSize: "2rem", fontWeight: "bold", color: "#fff", marginBottom: "33px" }}>
+          Why creators <span style={{ color: "#f8934e" }}>choose us</span>
+        </h2>
+        <div
           style={{
-            background: "transparent",
-            width: "100%",
             display: "flex",
+            flexWrap: "wrap",
             justifyContent: "center",
-            alignItems: "center",
-            gap: "180px",
-            marginBottom: "38px",
-            marginTop: "120px",
-            padding: "0 16px",
+            gap: "28px",
+            marginBottom: "42px",
           }}
         >
+          {whyCards.map((card) => (
+            <div
+              key={card.title}
+              style={{
+                background: "#191919",
+                borderRadius: "14px",
+                boxShadow: "0 2px 16px #42271033",
+                color: "#fff",
+                minWidth: "230px",
+                maxWidth: "260px",
+                padding: "32px 20px 24px 20px",
+                textAlign: "left",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+              }}
+            >
+              <img
+                src={card.icon}
+                alt={card.title}
+                style={{ width: 40, height: 40, marginBottom: 18 }}
+              />
+
+              <div style={{ fontWeight: "bold", fontSize: "1.1rem", marginBottom: "8px" }}>
+                {card.title}
+              </div>
+              <div style={{ color: "#ccc", fontSize: "0.97rem" }}>{card.desc}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+  {/* FAQ Section */ }
+  <section
+    style={{
+      background: "transparent",
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "180px",
+      marginBottom: "38px",
+      marginTop: "120px",
+      padding: "0 16px",
+    }}
+  >
+    <div
+      style={{
+        width: "200px",
+        minWidth: "168px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <span
+          style={{
+            fontSize: "4.4em",
+            fontWeight: "bold",
+            color: "#fdd700",
+            position: "relative",
+            lineHeight: "0.8",
+            filter: "drop-shadow(0 0 2px #f8934e)",
+          }}
+        >
+          <img src={"/inr.png"} />
+        </span>
+        <div
+          style={{
+            width: "22px",
+            height: "78px",
+            marginTop: "-63px",
+            marginLeft: "80px",
+            borderRadius: "15px",
+            background: "linear-gradient(120deg, #f8934eaa 40%, #fbbf5933 100%)",
+            boxShadow: "0 0 8px #f8934e77 inset",
+          }}
+        ></div>
+      </div>
+    </div>
+
+    <div
+      style={{
+        background: "#2b1f10",
+        borderRadius: "14px",
+
+        width: "46%",
+        boxShadow: "0 4px 20px #f8934e55",
+        padding: "22px 24px",
+        border: "1.5px solid #f8934e80",
+        color: "#f8f1e7",
+        fontFamily: "'Montserrat', Arial, sans-serif",
+      }}
+    >
+      {faqList.map((faq, idx) => (
+        <div key={idx} style={{ marginBottom: openIndex === idx ? 14 : 4 }}>
           <div
+            onClick={() => toggleFAQ(idx)}
             style={{
-              width: "200px",
-              minWidth: "168px",
               display: "flex",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "space-between",
+              padding: "16px 10px",
+              borderBottom: idx < faqList.length - 1 ? "1px solid #603813" : "none",
+              background: openIndex === idx ? "#2b1f10" : "transparent",
+              borderRadius: openIndex === idx ? "14px 14px 0 0" : "14px",
+              cursor: "pointer",
+              userSelect: "none",
+              fontWeight: 600,
+              fontSize: "1.1rem",
+              letterSpacing: "0.02em",
+              color: openIndex === idx ? "linear-gradient(120deg, #f8934eaa 40%, #fbbf5933 100%)" : "#ff9148",
+              transition: "background 0.25s, color 0.25s",
+              border: "1px solid #603813"
+
             }}
           >
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <span
-                style={{
-                  fontSize: "4.4em",
-                  fontWeight: "bold",
-                  color: "#fdd700",
-                  position: "relative",
-                  lineHeight: "0.8",
-                  filter: "drop-shadow(0 0 2px #f8934e)",
-                }}
-              >
-                <img src={"/inr.png"} />
-              </span>
-              <div
-                style={{
-                  width: "22px",
-                  height: "78px",
-                  marginTop: "-63px",
-                  marginLeft: "80px",
-                  borderRadius: "15px",
-                  background: "linear-gradient(120deg, #f8934eaa 40%, #fbbf5933 100%)",
-                  boxShadow: "0 0 8px #f8934e77 inset",
-                }}
-              ></div>
+            {faq.question}
+            <div
+              style={{
+                color: "#f8934e",
+                fontSize: "1.4rem",
+                fontWeight: 700,
+                marginLeft: 12,
+                transform: openIndex === idx ? "rotate(45deg)" : "rotate(0deg)",
+                transition: "transform 0.3s ease",
+                lineHeight: 1,
+              }}
+              aria-label={openIndex === idx ? "Collapse answer" : "Expand answer"}
+            >
+              +
             </div>
           </div>
 
           <div
+            ref={el => {
+              refs.current[idx] = el;
+            }}
+
             style={{
-              background: "#2b1f10",
-              borderRadius: "14px",
-              
-              width: "46%",
-              boxShadow: "0 4px 20px #f8934e55",
-              padding: "22px 24px",
-              border: "1.5px solid #f8934e80",
-              color: "#f8f1e7",
-              fontFamily: "'Montserrat', Arial, sans-serif",
+              maxHeight: openIndex === idx ? undefined : "px",
+              overflow: "hidden",
+              background: "#4f320f",
+              color: "#e9d8b0",
+              fontSize: "1rem",
+              fontWeight: 400,
+              lineHeight: 1.52,
+              borderRadius: "0 0 14px 14px",
+              transition: "max-height 0.35s cubic-bezier(.37,1,.65,1), padding 0.25s",
+              padding: "14px",
+              paddingTop: "12px",
+              userSelect: "text",
+              boxSizing: "border-box",
+              marginBottom: openIndex === idx ? 5 : 0,
+              // Prevent content cut-off by letting maxHeight be the real content height
             }}
           >
-            {faqList.map((faq, idx) => (
-              <div key={idx} style={{ marginBottom: openIndex === idx ? 14 : 4 }}>
-                <div
-                  onClick={() => toggleFAQ(idx)}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    padding: "16px 10px",
-                    borderBottom: idx < faqList.length - 1 ? "1px solid #603813" : "none",
-                    background: openIndex === idx ? "#2b1f10" : "transparent",
-                    borderRadius: openIndex === idx ? "14px 14px 0 0" : "14px",
-                    cursor: "pointer",
-                    userSelect: "none",
-                    fontWeight: 600,
-                    fontSize: "1.1rem",
-                    letterSpacing: "0.02em",
-                    color: openIndex === idx ?"linear-gradient(120deg, #f8934eaa 40%, #fbbf5933 100%)" : "#ff9148",
-                    transition: "background 0.25s, color 0.25s",
-                    border:"1px solid #603813"
-                   
-                  }}
-                >
-                  {faq.question}
-                  <div
-                    style={{
-                      color: "#f8934e",
-                      fontSize: "1.4rem",
-                      fontWeight: 700,
-                      marginLeft: 12,
-                      transform: openIndex === idx ? "rotate(45deg)" : "rotate(0deg)",
-                      transition: "transform 0.3s ease",
-                      lineHeight: 1,
-                    }}
-                    aria-label={openIndex === idx ? "Collapse answer" : "Expand answer"}
-                  >
-                    +
-                  </div>
-                </div>
-
-                <div
-                  ref={el => {
-                    refs.current[idx] = el;
-                  }}
-
-                  style={{
-                maxHeight: openIndex === idx ? undefined : "px",
-                overflow: "hidden",
-                background: "#4f320f",
-                color: "#e9d8b0",
-                fontSize: "1rem",
-                fontWeight: 400,
-                lineHeight: 1.52,
-                borderRadius: "0 0 14px 14px",
-                transition: "max-height 0.35s cubic-bezier(.37,1,.65,1), padding 0.25s",
-                padding:"14px",
-                paddingTop:"12px",
-                userSelect: "text",
-                boxSizing: "border-box",
-                marginBottom: openIndex === idx ? 5 : 0,
-                // Prevent content cut-off by letting maxHeight be the real content height
-              }}
-                >
-                  {faq.answer}
-                </div>
-              </div>
-            ))}
+            {faq.answer}
           </div>
-        </section>
-        {/* Ready to Start Section */}
-{/* CTA Footer Top Section */}
-<section
-  style={{
-    width: "100%",
-    background: "linear-gradient(90deg, #181618 50%, #23170b 100%)",
-    color: "#fff",
-    padding: "52px 0 48px 0",
-    fontFamily: "'Montserrat', Arial, sans-serif",
-    textAlign: "center",
-  }}
->
-  <h2
-    style={{
-      fontWeight: "bold",
-      fontSize: "2.1rem",
-      margin: 0,
-      marginBottom: "18px",
-      letterSpacing: ".01em",
-    }}
-  >
-    Ready to start creating?
-  </h2>
-  <div
-    style={{
-      color: "#bfc8d2",
-      fontSize: "1.15rem",
-      marginBottom: "36px",
-      fontWeight: 500,
-      maxWidth: 600,
-      marginLeft: "auto",
-      marginRight: "auto",
-    }}
-  >
-    Join thousands of creators who have transformed their passion into income.
-  </div>
-  <div style={{ display: "flex", gap: "18px", justifyContent: "center" }}>
-    <button
-      style={{
-        background:"#e26918",
-        color: "#16110a",
-        borderRadius: "32px",
-        border: "none",
-        padding: "16px 36px",
-        fontWeight: 700,
-        fontSize: "1.07rem",
-        cursor: "pointer",
-        boxShadow: "0 2px 12px #f9ae0f20",
-        letterSpacing: ".03em",
-        transition: "filter 0.2s",
-      }}
-      onMouseOver={e => (e.currentTarget.style.filter = "brightness(0.92)")}
-      onMouseOut={e => (e.currentTarget.style.filter = "none")}
-    >
-      Join as Creator
-    </button>
-    <button
-      style={{
-        background: "transparent",
-        color: "#e26918",
-        borderRadius: "32px",
-        border: "2px solid #e26918",
-        padding: "16px 36px",
-        fontWeight: 700,
-        fontSize: "1.07rem",
-        cursor: "pointer",
-        boxShadow: "0 2px 10px #f9ae0f15",
-        letterSpacing: ".03em",
-        transition: "background 0.2s, color 0.2s",
-        marginLeft: 0,
-      }}
-     
-    >
-      Explore Creators
-    </button>
-  </div>
-</section>
-
-{/* Footer Bottom Section */}
-<footer
-  style={{
-    width: "100%",
-    background: "#121212",
-    color: "#fff",
-    padding: "44px 0 18px 0",
-    fontFamily: "'Montserrat', Arial, sans-serif",
-    borderTop: "1.5px solid #23170b",
-  }}
->
-  <div
-    style={{
-      maxWidth: 1200,
-      margin: "0 auto",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "flex-start",
-      flexWrap: "wrap",
-      padding: " 28px",
-      paddingLeft:"120px",
-      gap: "200px",
-    }}
-  >
-    {/* Branding & Description */}
-    <div style={{ minWidth: 250, flex: 1 }}>
-    <div
-  style={{
-    fontWeight: 900,
-    fontSize: "1.35rem",
-    letterSpacing: "2px",
-    cursor: "default",
-    userSelect: "none",
-  }}
->
-  {/* CULT - solid white */}
-  <span style={{ color: "#ffffff" }}>CULT</span>
-  {/* FANS - gradient orange text */}
-  <span
-    style={{
-      background: "linear-gradient(90deg, #f8934e 30%, #fdd700 99%)",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      fontWeight: 900,
-      letterSpacing: "2px",
-    }}
-  >
-    FANS
-  </span>
-</div>
-      <div style={{ color: "#e0e0e0", fontSize: "1rem" }}>
-        The ultimate platform where creators showcase their talent, build engaged communities, and turn their passion into profit.
-      </div>
+        </div>
+      ))}
     </div>
-    {/* Quick Links */}
-    <div style={{ minWidth: 160, flex: 1 }}>
-      <div style={{ fontWeight: 700, marginBottom: 15 }}>QUICK LINKS</div>
-      <div>
-        <a href="#" style={{ color: "#fff", textDecoration: "none", display: "block", marginBottom: 11, fontSize: "1rem", opacity: 0.89 }}>Platform Guidelines</a>
-        <a href="#" style={{ color: "#fff", textDecoration: "none", display: "block", marginBottom: 11, fontSize: "1rem", opacity: 0.89 }}>About Us</a>
-        <a href="#" style={{ color: "#fff", textDecoration: "none", display: "block", fontSize: "1rem", opacity: 0.89 }}>FAQ</a>
-      </div>
-    </div>
-    {/* Policy Links */}
-    <div style={{ minWidth: 160, flex: 1 }}>
-      <div style={{ fontWeight: 700, marginBottom: 15 }}>POLICIES</div>
-      <div>
-        <a href="#" style={{ color: "#fff", textDecoration: "none", display: "block", marginBottom: 11, fontSize: "1rem", opacity: 0.89 }}>Terms & Conditions</a>
-        <a href="#" style={{ color: "#fff", textDecoration: "none", display: "block", fontSize: "1rem", opacity: 0.89 }}>Privacy Policy</a>
-      </div>
-    </div>
-  </div>
-  <div
+  </section>
+  {/* Ready to Start Section */ }
+  {/* CTA Footer Top Section */ }
+  <section
     style={{
-      borderTop: "1px solid #252525",
+      width: "100%",
+      background: "linear-gradient(90deg, #181618 50%, #23170b 100%)",
+      color: "#fff",
+      padding: "52px 0 48px 0",
+      fontFamily: "'Montserrat', Arial, sans-serif",
       textAlign: "center",
-      marginTop: "38px",
-      paddingTop: "13px",
-      color: "#b1b1b1",
-      fontSize: "0.98rem",
-      letterSpacing: ".03em",
-      opacity: 0.75,
     }}
   >
-    © 2025 CULTFANS. All rights reserved.
-  </div>
-</footer>
+    <h2
+      style={{
+        fontWeight: "bold",
+        fontSize: "2.1rem",
+        margin: 0,
+        marginBottom: "18px",
+        letterSpacing: ".01em",
+      }}
+    >
+      Ready to start creating?
+    </h2>
+    <div
+      style={{
+        color: "#bfc8d2",
+        fontSize: "1.15rem",
+        marginBottom: "36px",
+        fontWeight: 500,
+        maxWidth: 600,
+        marginLeft: "auto",
+        marginRight: "auto",
+      }}
+    >
+      Join thousands of creators who have transformed their passion into income.
+    </div>
+    <div style={{ display: "flex", gap: "18px", justifyContent: "center" }}>
+      <button
+        style={{
+          background: "#e26918",
+          color: "#16110a",
+          borderRadius: "32px",
+          border: "none",
+          padding: "16px 36px",
+          fontWeight: 700,
+          fontSize: "1.07rem",
+          cursor: "pointer",
+          boxShadow: "0 2px 12px #f9ae0f20",
+          letterSpacing: ".03em",
+          transition: "filter 0.2s",
+        }}
+        onMouseOver={e => (e.currentTarget.style.filter = "brightness(0.92)")}
+        onMouseOut={e => (e.currentTarget.style.filter = "none")}
+      >
+        Join as Creator
+      </button>
+      <button
+        style={{
+          background: "transparent",
+          color: "#e26918",
+          borderRadius: "32px",
+          border: "2px solid #e26918",
+          padding: "16px 36px",
+          fontWeight: 700,
+          fontSize: "1.07rem",
+          cursor: "pointer",
+          boxShadow: "0 2px 10px #f9ae0f15",
+          letterSpacing: ".03em",
+          transition: "background 0.2s, color 0.2s",
+          marginLeft: 0,
+        }}
 
+      >
+        Explore Creators
+      </button>
+    </div>
+  </section>
 
-
+  {/* Footer Bottom Section */ }
+  <footer
+    style={{
+      width: "100%",
+      background: "#121212",
+      color: "#fff",
+      padding: "44px 0 18px 0",
+      fontFamily: "'Montserrat', Arial, sans-serif",
+      borderTop: "1.5px solid #23170b",
+    }}
+  >
+    <div
+      style={{
+        maxWidth: 1200,
+        margin: "0 auto",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "flex-start",
+        flexWrap: "wrap",
+        padding: " 28px",
+        paddingLeft: "120px",
+        gap: "200px",
+      }}
+    >
+      {/* Branding & Description */}
+      <div style={{ minWidth: 250, flex: 1 }}>
+        <div
+          style={{
+            fontWeight: 900,
+            fontSize: "1.35rem",
+            letterSpacing: "2px",
+            cursor: "default",
+            userSelect: "none",
+          }}
+        >
+          {/* CULT - solid white */}
+          <span style={{ color: "#ffffff" }}>CULT</span>
+          {/* FANS - gradient orange text */}
+          <span
+            style={{
+              background: "linear-gradient(90deg, #f8934e 30%, #fdd700 99%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              fontWeight: 900,
+              letterSpacing: "2px",
+            }}
+          >
+            FANS
+          </span>
+        </div>
+        <div style={{ color: "#e0e0e0", fontSize: "1rem" }}>
+          The ultimate platform where creators showcase their talent, build engaged communities, and turn their passion into profit.
+        </div>
       </div>
+      {/* Quick Links */}
+      <div style={{ minWidth: 160, flex: 1 }}>
+        <div style={{ fontWeight: 700, marginBottom: 15 }}>QUICK LINKS</div>
+        <div>
+          <a href="#" style={{ color: "#fff", textDecoration: "none", display: "block", marginBottom: 11, fontSize: "1rem", opacity: 0.89 }}>Platform Guidelines</a>
+          <a href="#" style={{ color: "#fff", textDecoration: "none", display: "block", marginBottom: 11, fontSize: "1rem", opacity: 0.89 }}>About Us</a>
+          <a href="#" style={{ color: "#fff", textDecoration: "none", display: "block", fontSize: "1rem", opacity: 0.89 }}>FAQ</a>
+        </div>
+      </div>
+      {/* Policy Links */}
+      <div style={{ minWidth: 160, flex: 1 }}>
+        <div style={{ fontWeight: 700, marginBottom: 15 }}>POLICIES</div>
+        <div>
+          <a href="#" style={{ color: "#fff", textDecoration: "none", display: "block", marginBottom: 11, fontSize: "1rem", opacity: 0.89 }}>Terms & Conditions</a>
+          <a href="#" style={{ color: "#fff", textDecoration: "none", display: "block", fontSize: "1rem", opacity: 0.89 }}>Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+    <div
+      style={{
+        borderTop: "1px solid #252525",
+        textAlign: "center",
+        marginTop: "38px",
+        paddingTop: "13px",
+        color: "#b1b1b1",
+        fontSize: "0.98rem",
+        letterSpacing: ".03em",
+        opacity: 0.75,
+      }}
+    >
+      © 2025 CULTFANS. All rights reserved.
+    </div>
+  </footer>
+
+
+
+      </div >
+      <style jsx global>{`
+  @media (max-width: 850px) {
+    html{
+      width: 1375px
+    }
+    .timeline-wrapper {
+      display: none !important; /* hide line + icons */
+    }
+
+    .secound {
+      grid-column: 1 / -1 !important; /* span full width */
+      grid-row: auto !important;
+      width: 100% !important;        /* full width on mobile */
+      max-width: 100% !important;
+      margin: 0 auto !important;     /* center it */
+    }
+
+    .first {
+      text-align: center !important;
+      font-size: 1.7rem !important;
+      width: 100% !important;        /* make heading responsive */
+    }
+  }
+`}</style>
+
     </>
   );
 }
@@ -959,3 +986,4 @@ const heroSecondaryBtnStyle = {
   boxShadow: "0 1px 14px #f8934e40",
   cursor: "pointer",
 };
+
